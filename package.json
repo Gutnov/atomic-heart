@@ -1,0 +1,33 @@
+{
+  "name": "atomic-heaet",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.8",
+    "axios": "^1.6.2",
+    "bpmn-js": "^16.1.0",
+    "pinia": "^2.1.7",
+    "quasar": "^2.14.0",
+    "vue": "^3.3.4",
+    "vue-bpmn": "^0.3.0",
+    "vue-router": "^4.2.5"
+  },
+  "devDependencies": {
+    "@quasar/vite-plugin": "^1.6.0",
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "prettier": "^3.0.3",
+    "sass": "^1.69.5",
+    "vite": "^4.4.11"
+  }
+}
