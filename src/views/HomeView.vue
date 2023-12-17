@@ -18,15 +18,27 @@
             transition-next="jump-up"
           >
             <q-tab-panel name="contracts">
-              <img class="home-view__diagram" src="../assets/img/BP.png" />
+              <img
+                class="home-view__diagram"
+                src="../assets/img/BP.png"
+                style="display: block; margin-bottom: 40px"
+              />
               <ContractsTable />
             </q-tab-panel>
             <q-tab-panel name="companies">
-              <img class="home-view__diagram" src="../assets/img/BP.png" />
+              <img
+                class="home-view__diagram"
+                src="../assets/img/BP.png"
+                style="display: block; margin-bottom: 40px"
+              />
               <CompaniesTable />
             </q-tab-panel>
             <q-tab-panel name="business">
-              <img class="home-view__diagram" src="../assets/img/BP.png" />
+              <img
+                class="home-view__diagram"
+                src="../assets/img/BP.png"
+                style="display: block; margin-bottom: 40px"
+              />
             </q-tab-panel>
           </q-tab-panels>
         </div>
@@ -47,6 +59,9 @@ const tab = ref('contracts')
 .home-view__main {
   display: grid;
   grid-template-columns: auto 1fr;
+}
+.q-tab-panel {
+  background-color: #f9fafc;
 }
 .home-view__diagram {
   max-width: 100%;

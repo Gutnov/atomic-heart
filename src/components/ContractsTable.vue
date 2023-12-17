@@ -11,6 +11,8 @@
       class="my-sticky-header-table"
       :rows-per-page-options="[0]"
       :loading="loading"
+      :filter="store.filters"
+      :filter-method="store.filter"
     >
       <template v-slot:top>
         <div class="companies-table__filter">
@@ -39,16 +41,19 @@
 
 <script setup>
 import { onMounted, ref } from 'vue'
-import { useCompaniesFilterStore } from '@/stores/companies-filter'
+import { useContractsFilterStore } from '@/stores/contracts-filter'
 import { exportFile, useQuasar } from 'quasar'
 const $q = useQuasar()
 const loading = ref(true)
 const rows = ref([])
+const store = useContractsFilterStore()
+
 onMounted(async () => {
   let data = await import('@/resorces/contracts_cl.json')
   rows.value = data.default
   rows.value = rows.value.map((row) => {
     return {
+      ...row,
       name: row.subject,
       id: row.contract_id,
       start_date:
@@ -106,10 +111,11 @@ function wrapCsvValue(val, formatFn, row) {
 }
 
 const exportTable = () => {
+  console.log(store.rowsProp.value)
   // naive encoding to csv format
   const content = [columns.value.map((col) => wrapCsvValue(col.label))]
     .concat(
-      rows.value.map((row) =>
+      store.rowsProp.map((row) =>
         columns.value
           .map((col) =>
             wrapCsvValue(
@@ -139,8 +145,6 @@ const exportTable = () => {
 const pagination = ref({
   rowsPerPage: 0
 })
-
-const store = useCompaniesFilterStore()
 
 const doubleclickHandler = (val, row) => {
   if (val === row.parent) {
